@@ -1,0 +1,111 @@
+array:
+  baseline: 15.0
+  beam_size: 0.005
+  bl_max: 100.0
+  bl_min: 1.0
+  d_temp: 23
+  dc_per_pix: 1
+  diameter: 2.0
+  m_emissivity: 0.025
+  m_temp: 48
+  pixel_size: 2.3e-05
+  quantum_eff: 0.7
+  ratio: 6.0
+  spec_res: 20.0
+  t_efficiency: 0.8
+  t_slew: 36000.0
+  throughput: 0.05
+  wl_max: 18.5
+  wl_min: 4.0
+connections:
+- - inst
+  - transm
+- - inst
+  - exo
+- - inst
+  - local
+- - star
+  - inst
+- - inst
+  - mirror
+- - inst
+  - darkcurrent
+- - star
+  - transm
+- - opt
+  - transm
+- - opt
+  - inst
+- - opt
+  - ahgs
+models:
+  fov_taper: gaussian
+  habitable: MS
+  localzodi: darwinsim
+modules:
+  ahgs: <class 'lifesim.optimize.ahgs.AhgsModule'>
+  darkcurrent: <class 'lifesim.instrument.en_darkcurrent.ElectronNoiseDarkCurrent'>
+  exo: <class 'lifesim.instrument.pn_exozodi.PhotonNoiseExozodi'>
+  inst: <class 'lifesim.instrument.instrument.Instrument'>
+  local: <class 'lifesim.instrument.pn_localzodi.PhotonNoiseLocalzodi'>
+  mirror: <class 'lifesim.instrument.pn_thermal.PhotonNoiseThermal'>
+  opt: <class 'lifesim.optimize.optimizer.Optimizer'>
+  star: <class 'lifesim.instrument.pn_star.PhotonNoiseStar'>
+  transm: <class 'lifesim.instrument.transmission.TransmissionMap'>
+optimization:
+  N_pf: 25
+  characterization: false
+  experiments:
+    F:
+      in_HZ: true
+      radius_p_max: 1.5
+      radius_p_min: 0.5
+      sample_size: .inf
+      temp_s_max: 6911.0
+      temp_s_min: 5654.0
+    G:
+      in_HZ: true
+      radius_p_max: 1.5
+      radius_p_min: 0.5
+      sample_size: .inf
+      temp_s_max: 5932.0
+      temp_s_min: 5126.0
+    K:
+      in_HZ: true
+      radius_p_max: 1.5
+      radius_p_min: 0.5
+      sample_size: .inf
+      temp_s_max: 5361.0
+      temp_s_min: 3497.86255
+    M:
+      in_HZ: true
+      radius_p_max: 1.5
+      radius_p_min: 0.5
+      sample_size: .inf
+      temp_s_max: 4097.0
+      temp_s_min: 2350.0
+  habitable: true
+  limit:
+    F: .inf
+    G: .inf
+    K: .inf
+    M: .inf
+  limit_mode: legacy
+  n_orbits: 5
+  opt_limit: time
+  opt_limit_factor: 0.5
+  snr_char: 44.1
+  snr_target: 7
+  t_search: 78840000.0
+other:
+  fov_threshold: 0.01
+  image_size: 256
+  n_cpu: 1
+  n_plugins: 5
+  output_filename: test_run
+  output_path: /home/kirschkobold/LIFEsim/kira_testing/yield/
+  wl_optimal: 15
+version:
+  git_branch: thermal
+  git_sha: 72dce9600297d8eb3987016dbf50c808bd7671ea
+  version: 0.2.32

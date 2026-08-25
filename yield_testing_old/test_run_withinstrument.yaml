@@ -1,0 +1,121 @@
+array:
+  baseline: 20.0
+  bl_max: 100.0
+  bl_min: 10.0
+  dc_per_pix: 1
+  diameter: 2.0
+  fixed_baseline: false
+  num_apertures: 4
+  num_outputs: 2
+  on_axis_null_depth: null
+  pix_per_wl: 2.2
+  pixel_size: 2.3e-05
+  quantum_eff: 0.7
+  ratio: 6.0
+  spec_res: 20.0
+  spec_res_inst: 100
+  t_efficiency: 0.8
+  t_slew: 36000.0
+  throughput: 0.05
+  wl_max: 18.5
+  wl_min: 4.0
+connections:
+- - inst
+  - transm
+- - inst
+  - exo
+- - inst
+  - local
+- - inst
+  - star
+- - inst
+  - mirror
+- - transm
+  - star
+- - opt
+  - transm
+- - opt
+  - inst
+- - opt
+  - ahgs
+models:
+  fov_taper: gaussian
+  hz_model: MS
+  localzodi: darwinsim
+modules:
+  ahgs: <class 'lifesim.optimize.ahgs.AhgsModule'>
+  exo: <class 'lifesim.instrument.pn_exozodi.PhotonNoiseExozodi'>
+  inst: <class 'lifesim.instrument.instrument.Instrument'>
+  local: <class 'lifesim.instrument.pn_localzodi.PhotonNoiseLocalzodi'>
+  mirror: <class 'lifesim.instrument.pn_thermal.PhotonNoiseThermal'>
+  opt: <class 'lifesim.optimize.optimizer.Optimizer'>
+  star: <class 'lifesim.instrument.pn_star.PhotonNoiseStar'>
+  transm: <class 'lifesim.instrument.transmission.TransmissionMap'>
+optimization:
+  N_pf: 25
+  characterization: false
+  experiments:
+    F:
+      in_HZ: true
+      radius_p_max: 1.5
+      radius_p_min: 0.5
+      sample_size: .inf
+      temp_s_max: 6911.0
+      temp_s_min: 5654.0
+    G:
+      in_HZ: true
+      radius_p_max: 1.5
+      radius_p_min: 0.5
+      sample_size: .inf
+      temp_s_max: 5932.0
+      temp_s_min: 5126.0
+    K:
+      in_HZ: true
+      radius_p_max: 1.5
+      radius_p_min: 0.5
+      sample_size: .inf
+      temp_s_max: 5361.0
+      temp_s_min: 3497.86255
+    M:
+      in_HZ: true
+      radius_p_max: 1.5
+      radius_p_min: 0.5
+      sample_size: .inf
+      temp_s_max: 4097.0
+      temp_s_min: 2350.0
+  habitable: true
+  iwa_cut: null
+  limit:
+    F: .inf
+    G: .inf
+    K: .inf
+    M: .inf
+  limit_mode: legacy
+  n_orbits: 5
+  opt_limit: time
+  opt_limit_factor: 0.5
+  snr_char: 44.1
+  snr_target: 7
+  t_search: 78840000.0
+other:
+  fov_threshold: 0.01
+  image_size: 64
+  n_cpu: 1
+  n_plugins: 5
+  output_filename: test_run_withinstrument
+  output_path: /home/kirschkobold/documents/life_internship/LIFEsim_yields/yield_testing_old/
+  wl_optimal: 15
+thermal:
+  detector_temperature: 20
+  detector_wl_max: 2.8e-05
+  detector_wl_min: 5.0e-06
+  instrument_emissivity: 1.0
+  instrument_temperature: 40
+  instrument_throughput: 1.0
+  ota_emissivity: 0.06
+  ota_temperature: 48.0
+  ota_throughput: 0.94
+version:
+  git_branch: thermal_yield
+  git_sha: 999b76aebfc367cd3e3d1f5ebecf1ffd2886f0c4
+  version: 0.2.32
